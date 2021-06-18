@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -49,12 +50,11 @@ body.match {
 
 .game__card-front,
 .game__card-back {
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: contain;
   padding: 20px;
-  position: absolute;
-  border-radius: 5px;
   background: #1c7ccc;
   backface-visibility: hidden;
 }

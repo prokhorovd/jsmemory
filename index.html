@@ -4,11 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Подключение стилей -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.css" />
     <title>JS Memory Game</title>
   </head>
   <body>
+    <!-- Игровое поле -->
     <section class="game__field" data-name="00">
+      <!-- Игровая карта -->
       <div class="game__card" data-name="00">
         <img class="game__card-front" src="img/card-img00.png" alt="00" />
         <img class="game__card-back" src="img/card-back.png" alt="MemCard" />
@@ -69,13 +77,16 @@
         <img class="game__card-back" src="img/card-back.png" alt="MemCard" />
       </div>
     </section>
+    <!-- Кнопка сброса игрового поля -->
     <div class="buttons">
       <button class="buttons__reset">Начать заново</button>
     </div>
+    <!-- Окно победы, скрытое по умолчанию -->
     <div class="win hidden">
       <div class="win__notification">Победа!</div>
       <button class="win__restart">Играть снова</button>
     </div>
+    <!-- Подключение скрипта js -->
     <script src="./script.js"></script>
   </body>
 </html>

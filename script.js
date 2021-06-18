@@ -1,10 +1,10 @@
 // ИНИЦИАЛИЗАЦИЯ
-
 const cards = document.querySelectorAll('.game__card');
 const body = document.body;
 const CARD_COUNTER = 6;
+const WAIT_TIME = 5000; //ms
 
-// Константы для отслеживания состояния карт и доски
+// Константы для отслеживания состояния карт и игрового поля
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
@@ -42,19 +42,22 @@ function checkForMatch() {
   isMatch ? matchFound() : mistakeFound();
 }
 
-// Отключить карты в случае совпадения
+// Пользователь нашел совпадение
 function matchFound() {
+  // подсветка поля
   body.classList.add('match');
+  // убираем возможность взаимодействия с картами
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
-
+  // очищаем переменные запомненных карт
   resetBoard();
+  // 
   setTimeout(() => {
     body.classList.remove('match');
   }, 1000);
+  // Корректируем счетчик открытых пар
   matchCounter += 1;
-  console.log(matchCounter);
-  console.log(CARD_COUNTER);
+  // Если открыты все карты - показываем окно победы
   if (matchCounter === CARD_COUNTER) {
     winScreen.classList.remove('hidden');
   }
@@ -114,7 +117,6 @@ const playAgain = function () {
   resetFunc();
 }
 
-
 // Слушатели на кнопки сброса и рестарта
 const resetButton = document.querySelector('.buttons__reset');
 resetButton.addEventListener('click', resetFunc);
@@ -123,15 +125,8 @@ const restartButton = document.querySelector('.win__restart');
 restartButton.addEventListener('click', playAgain);
 
 // ИГРА
-
-// Перемешать поле
+// Перемешать карты
 shuffleField();
 
 // Старт игры
 startGame();
-
-
-//
-
-
-
